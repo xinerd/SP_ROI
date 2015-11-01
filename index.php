@@ -5,5 +5,6 @@
  * Author: XIN MING
  * Since: 10/31/15 10:55 PM
  */
+phpinfo();
 ?>
 index

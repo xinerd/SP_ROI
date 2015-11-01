@@ -5,6 +5,9 @@
  * Author: XIN MING
  * Since: 10/31/15 10:55 PM
  */
-phpinfo();
-?>
-index
+require 'libs/Bootstrap.php';
+require 'libs/Model.php';
+require 'libs/Controller.php';
+require 'libs/View.php';
+$app = new Bootstrap();
+

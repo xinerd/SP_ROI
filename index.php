@@ -9,5 +9,8 @@ require 'libs/Bootstrap.php';
 require 'libs/Model.php';
 require 'libs/Controller.php';
 require 'libs/View.php';
+
+require 'config/Paths.php';
+require 'config/Database.php';
 $app = new Bootstrap();
 

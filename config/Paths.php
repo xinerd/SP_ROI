@@ -3,7 +3,7 @@
  * Project: SP_ROI
  * COPYRIGHT ©2014-2024, FMACHINE.CN, ALL RIGHTS RESERVED
  * Author: XIN MING
- * Since: 11/1/15 1:08 PM
+ * Since: 11/2/15 1:51 PM
  */
 
-echo $this->msg;
+define('URL', 'http://localhost/roi/');

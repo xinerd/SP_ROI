@@ -7,9 +7,10 @@
  */
 
 ?>
-<html>
 
-<body>
-This is footer
+<hr/>
+<div id="footer">
+    (C) Footer
+</div>
 </body>
 </html>

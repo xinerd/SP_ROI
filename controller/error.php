@@ -10,9 +10,12 @@ class Error extends Controller {
 
     function __construct() {
         parent::__construct();
-        echo "Something went wrong, please try it again.<br/>";
+    }
+
+    function index() {
+        //        echo "Something went wrong, please try it again.<br/>";
         $this->view->msg = "this view does not exists.";
         $this->view->render('error/index');
-
     }
+
 }

@@ -11,15 +11,15 @@ class index extends Controller {
 
     function __construct() {
         parent::__construct();
-        echo "This is controller index.";
     }
 
-    public function doStuff() {
-        echo "do some stuff.";
+    function index() {
+        //        echo 'INSIDE INDEX/INDEX';
+        $this->view->render('index/index');
     }
 
-    public function printName($name) {
-        echo "This is your name:" . $name;
-
+    function details() {
+        $this->view->render('index/index');
     }
+
 }

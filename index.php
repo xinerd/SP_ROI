@@ -12,5 +12,7 @@ require 'libs/View.php';
 
 require 'config/Paths.php';
 require 'config/Database.php';
+
+require 'libs/Database.php';
 $app = new Bootstrap();
 

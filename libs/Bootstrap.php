@@ -34,6 +34,7 @@ class Bootstrap {
         }
 
         $controller = new $url[0];
+        $controller->loadModel($url[0]);
 
         // execute a method with param if url[2] exist
         if (isset($url[2])) {

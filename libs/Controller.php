@@ -7,6 +7,7 @@
  * Since: 11/1/15 12:59 PM
  */
 class Controller {
+    protected $model;
 
 
     function __construct() {

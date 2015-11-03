@@ -14,7 +14,7 @@ class Bootstrap {
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        // print_r($url);
+        //        print_r($url);
 
         // check if no url entered
         if (empty($url[0])) {
@@ -25,12 +25,12 @@ class Bootstrap {
         }
 
         $file = 'controller/' . $url[0] . '.php';
+
         // Get controller
         if (file_exists($file)) {
             require $file;
         } else {
             $this->error();
-            //    echo "???";
         }
 
         $controller = new $url[0];

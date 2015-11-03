@@ -11,6 +11,7 @@ class Login extends Controller {
     }
 
     function run() {
+        //        echo "inside login/run";
         $this->model->run();
     }
 

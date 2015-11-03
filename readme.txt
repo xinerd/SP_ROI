@@ -1,7 +1,1 @@
-template
-
-CRUD
-
-require | include
-
-MVC
+Solar panel return of interest.

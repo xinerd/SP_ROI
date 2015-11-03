@@ -6,7 +6,8 @@
  * Since: 11/2/15 1:50 PM
  */
 
-
-class Database {
-
-}
+define('DB_TYPE', 'mysql');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'Test');
+define('DB_USER', 'root');
+define('DB_PASS', '');

@@ -6,16 +6,16 @@
  * Author: XIN MING
  * Since: 11/1/15 11:08 AM
  */
-class Error extends Controller {
+class Prompt extends Controller {
 
     function __construct() {
         parent::__construct();
     }
 
-    function index() {
+    function index($defaultPrompt = PAGE_NOT_FOUND) {
         //        echo "Something went wrong, please try it again.<br/>";
-        $this->view->msg = "this view does not exists.";
-        $this->view->render('error/index');
+        $this->view->msg = $defaultPrompt;
+        $this->view->render('prompt/index');
     }
 
 }

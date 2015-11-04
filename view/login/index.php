@@ -1,8 +1,36 @@
 <h1>Login</h1>
 
-<form action="login/run" method="post">
+<!-- login form -->
+<form class="form-horizontal" role="form" method="post" action="login/run"
+      onsubmit="return chk_login();">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email:</label>
 
-    <label>Login</label><input type="text" name="login"/><br/>
-    <label>Password</label><input type="password" name="password"/><br/>
-    <label></label><input type="submit"/>
+        <div class="col-sm-5">
+            <input type="email" class="form-control" id="email" name="login"
+                   placeholder="Enter email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Password:</label>
+
+        <div class="col-sm-5">
+            <input type="password" class="form-control" id="pwd" name="password"
+                   placeholder="Enter password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
 </form>
+<!-- end of login form -->
+<script type="text/javascript" src="<?php echo URL; ?>view/login/js/login.js"></script>

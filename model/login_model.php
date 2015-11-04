@@ -10,7 +10,7 @@ class Login_Model extends Model {
         $uid = $_POST['login'];
         $password = MD5($_POST['password']);
 
-        $po = UserDAOImpl::testFindOne($uid, $password); // get from DB
+        $po = UserDAOImpl::doLogin($uid, $password); // get from DB
         /**
          * 1. no record found
          * 2. user email and password matched and status is activated

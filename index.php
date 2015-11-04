@@ -22,17 +22,17 @@ require 'libs/View.php';
 require 'libs/Database.php';
 require 'libs/Session.php';
 
+
 /**
  * load all framework
  */
-require 'libs/rb.php';
+require 'libs/orm/rb.php';
 
 /**
  * load all classes
  */
 require 'vo/User.class.php';
 require 'model/UserDAOImpl.class.php';
+require 'controller/prompt.php';
 
 $app = new Bootstrap();
-
-

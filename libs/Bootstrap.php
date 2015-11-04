@@ -58,8 +58,8 @@ class Bootstrap {
     }
 
     function error() {
-        require 'controller/error.php';
-        $controller = new Error();
+        //require 'controller/prompt.php';
+        $controller = new Prompt();
         $controller->index();
         die;
         //        return false;

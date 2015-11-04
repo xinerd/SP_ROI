@@ -8,19 +8,30 @@
  */
 class UserDAOImpl {
 
-
     function __construct() {
     }
 
     public static function doCreate($vo) {
-        $user = R::dispense('t_user');
-        $user->uid = $vo->getUid();
-        $user->password = $vo->getPassword();
-        return $id = R::store($user);
+        $po = R::dispense('user');
+
+        $po->username = $vo->getUserName();
+        $po->password = $vo->getPassword();
+        $po->email = $vo->getEmail();
+        $po->token = $vo->getToken();
+        $po->token_exptime = $vo->getTokenExptime();
+        $po->regtime = $vo->getRegTime();
+
+        try {
+            $id = R::store($po);
+        } catch (Exception $e) {
+            //            echo $e;
+            // LOG SQL_EXCEPTION_DUPLICATE_ENTRY;
+        }
+        return isset($id) ? true : false;
     }
 
     public static function doUpdate($vo) {
-        $user = R::dispense('t_user');
+        $user = R::dispense('user');
         $user->id = $vo->getId();
         $user->uid = $vo->getUid();
         $user->age = $vo->getAge();
@@ -29,7 +40,7 @@ class UserDAOImpl {
     }
 
     public static function doDeleteById($id) {
-        $user = R::dispense('t_user');
+        $user = R::dispense('user');
         $user->id = $id;
         R::trash($user); //for one bean
     }
@@ -43,41 +54,37 @@ class UserDAOImpl {
     public static function find($pageNum, $pageSize) {
         $start = ($pageNum - 1) * $pageSize;
         $criteria = ' LIMIT ' . $start . ',' . $pageSize;
-        return R::findAll('t_user', $criteria);
+        return R::findAll('user', $criteria);
     }
 
     public static function findById($id) {
-        return $user = R::load('t_user', $id);
+        return $user = R::load('user', $id);
     }
 
     public static function findByKeyword($col, $keyword) {
         $keyword = '%' . $keyword . '%';
         $criteria = $col . ' LIKE ?';
-        return $users = R::find('t_user', $criteria, [$keyword]);
+        return $users = R::find('user', $criteria, [$keyword]);
     }
 
     public static function batchFindByIds($ids) {
-        return $users = R::loadAll('t_user', $ids);
+        return $users = R::loadAll('user', $ids);
     }
 
     public static function getAllCount() {
-        return R::count('t_user');
+        return R::count('user');
     }
 
     public static function exeSQL($sql) {
         return R::exec($sql);
     }
 
-    public static function testFindOne($uid, $password) {
-        $user = R::findOne('t_user', ' email = ? and password = ? ', [$uid, $password]);
+    public static function doLogin($uid, $password) {
+        $user = R::findOne('user', ' email = ? and password = ? ', [$uid, $password]);
         return $user;
     }
 
     // reload
     //$bean = $bean->fresh();
-
-    //If you want a single bean instead of an array, use:
-    //$book  = R::findOne( 'book', ' title = ? ', [ 'SQL Dreams' ] );
-
 
 }

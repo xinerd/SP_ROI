@@ -9,7 +9,7 @@ class Database {
         R::setup(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
         R::freeze(TRUE);
         //R::startLogging(); //start logging
-        R::debug(FALSE);//turns debugging ON
+        //        R::debug(TRUE);//turns debugging ON
     }
 
 

@@ -11,8 +11,12 @@ class Login extends Controller {
     }
 
     function run() {
-        //        echo "inside login/run";
-        $this->model->run();
+        $this->view->msg = $this->model->run();
+        if ($this->view->msg === STATUS_LOGIN_SUCCESS) {
+            $this->view->render('dashboard/index');
+        } else {
+            $this->view->render('prompt/index');
+        }
     }
 
 

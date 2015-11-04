@@ -11,6 +11,7 @@
 require 'config/Paths.php';
 require 'config/Database.php';
 require 'config/const.php';
+require 'config/EmailSetting.php';
 
 /**
  * load all libs
@@ -21,6 +22,12 @@ require 'libs/Controller.php';
 require 'libs/View.php';
 require 'libs/Database.php';
 require 'libs/Session.php';
+
+/**
+ * load email
+ */
+require('libs/mail/class.phpmailer.php');
+require('libs/mail/EmailService.php');
 
 
 /**

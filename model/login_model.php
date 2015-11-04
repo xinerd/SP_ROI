@@ -18,8 +18,7 @@ class Login_Model extends Model {
          * 4. exception
          */
         if (null == $po) {
-            echo NO_RECORD_PROMPT;
-            echo BACK_TO_LOGIN_LINK;
+            $msg = NO_RECORD_PROMPT . BACK_TO_LOGIN_LINK;
             //  header('location: ../login');
         } elseif ($po->status == STATUS_ACTIVATED) {
             $user = new User(); // vo : used to convey user info
@@ -34,13 +33,17 @@ class Login_Model extends Model {
             Session::init();
             Session::set('loggedIn', true);
             Session::set('user', $user);
-            header('location: ../dashboard');
+            // header('location: ../dashboard');
+            $msg = STATUS_LOGIN_SUCCESS;
         } elseif ($po->status == STATUS_NON_ACTIVATED) {
-            echo STATUS_NON_ACTIVATED_PROMPT;
-            echo BACK_TO_LOGIN_LINK;
+            $msg = STATUS_NON_ACTIVATED_PROMPT . BACK_TO_LOGIN_LINK;
         } else {
-            header('location: ../login?status=exception');
+            //header('location: ../login?status=exception');
+            $msg = "Unknown Exception happened when login.";
         }
+        return $msg;
+        //        $controller = new Prompt();
+        //        $controller->index($msg);
     }
 
 }

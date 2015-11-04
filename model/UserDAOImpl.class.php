@@ -11,7 +11,7 @@ class UserDAOImpl {
     function __construct() {
     }
 
-    public static function doCreate($vo) {
+    public static function doCreate(User $vo) {
         $po = R::dispense('user');
 
         $po->username = $vo->getUserName();
@@ -30,11 +30,11 @@ class UserDAOImpl {
         return isset($id) ? true : false;
     }
 
-    public static function doUpdate($vo) {
+    public static function doUpdate(User $vo) {
         $user = R::dispense('user');
         $user->id = $vo->getId();
-        $user->uid = $vo->getUid();
-        $user->age = $vo->getAge();
+        $user->username = $vo->getUserName();
+        $user->status = $vo->getStatus();
         $user->password = $vo->getPassword();
         return $id = R::store($user);
     }
@@ -79,9 +79,24 @@ class UserDAOImpl {
         return R::exec($sql);
     }
 
-    public static function doLogin($uid, $password) {
-        $user = R::findOne('user', ' email = ? and password = ? ', [$uid, $password]);
+    public static function doLogin($email, $password) {
+        $user = R::findOne('user', ' email = ? and password = ? ', [$email, $password]);
         return $user;
+    }
+
+    public static function findByEmail($email) {
+        $user = R::findOne('user', ' email = ? ', [$email]);
+        return $user != null ? true : false;
+    }
+
+    public static function activateAccount($token, $nowtime) {
+        //        $user = R::dispense('user');
+
+        $result = R::exec('UPDATE user SET status = 1
+                            WHERE token = :token AND token_exptime > :nowtime ',
+            [':token' => $token, ':nowtime' => $nowtime]);
+
+        return $result;
     }
 
     // reload

@@ -5,24 +5,27 @@ class Signup_Model extends Model {
         parent::__construct();
     }
 
-    public function run() {
-        //        echo "sign up model";
+    public function run() { // echo "sign up model";
         $user = $this->propareVO();
+        // if Email not exists, continue to create
+        if (!UserDAOImpl::findByEmail($user->getEmail())) {
 
-        // create user in db
-        $result = UserDAOImpl::doCreate($user);
-        if ($result) {
-            // send mail
-
-            //            header('location: ../login');
-            $msg = SIGN_UP_SUCCESS;
-
+            $result = UserDAOImpl::doCreate($user);// create user in db
+            if ($result) {
+                // send mail
+                $iEmailService = new EmailService();
+                $iEmailService->setReceiver($user);
+                $msg = $iEmailService->sendEmail();
+                // header('location: ../login');
+            } else {
+                $msg = SQL_EXCEPTION_DUPLICATE_ENTRY;// show error prompt
+            }
         } else {
-            $msg = SQL_EXCEPTION_DUPLICATE_ENTRY;// show error prompt
+            $msg = SIGN_UP_DUPLICATE_REGISTER;
         }
+
         $controller = new Prompt();
         $controller->index($msg);
-
     }
 
     public function propareVO() {
@@ -44,4 +47,14 @@ class Signup_Model extends Model {
         return $user;
     }
 
+
+    public function activateAccount($token) {
+        $isActivated = UserDAOImpl::activateAccount(stripslashes(trim($token)), time());
+        if ($isActivated) {
+            $msg = SIGN_UP_ACTIVATE_SUCCESS;
+        } else {
+            $msg = SIGN_UP_ACTIVATE_CODE_EXPIRED;
+        }
+        return $msg;
+    }
 }

@@ -21,4 +21,14 @@ class signup extends Controller {
         $this->model->run();
     }
 
+    function active($token = false) {
+        $this->view->msg = $this->model->activateAccount($token);
+        if ($this->view->msg == SIGN_UP_ACTIVATE_SUCCESS) {
+            //            $this->view->render('dashboard/index');
+            $this->view->render('prompt/index');
+        } else {
+            $this->view->render('prompt/index');
+        }
+    }
+
 }

@@ -7,3 +7,4 @@
  */
 
 define('URL', 'http://localhost/roi/');
+define('URL_ACTIVATE', 'http://localhost/roi/signup/active/');

@@ -23,6 +23,10 @@
     <?php //echo URL; ?><!--public/js/jquery.js"></script>-->
     <!--    <script type="text/javascript" src="-->
     <?php //echo URL; ?><!--public/js/custom.js"></script>-->
+
+    <link rel="stylesheet" href="<?php echo URL; ?>view/roi/css/circular-slider.css"/>
+    <script src="<?php echo URL; ?>view/roi/js/circular-slider.js"></script>
+    <script src="<?php echo URL; ?>view/roi/js/roi.js"></script>
 </head>
 <body>
 
@@ -47,7 +51,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="<?php echo URL; ?>index">Home</a></li>
 
-                <li><a href="roi.html">ROI</a></li>
+                <li><a href="<?php echo URL; ?>roi">Free Report</a></li>
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other <span

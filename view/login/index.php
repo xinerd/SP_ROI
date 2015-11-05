@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<div style="text-align: center;"><h1>Login</h1></div>
 
 <!-- login form -->
 <form class="form-horizontal" role="form" method="post" action="login/run"

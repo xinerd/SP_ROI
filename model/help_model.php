@@ -7,8 +7,8 @@ class Help_Model extends Model {
         //        echo 'Help model<br/>';
     }
 
-    function helpInfo() {
-        return "help info";
+    function helpInfo($arg) {
+        return "<br/>help info:" . $arg;
     }
 
 }

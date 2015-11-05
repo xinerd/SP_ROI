@@ -41,5 +41,6 @@ require 'libs/orm/rb.php';
 require 'vo/User.class.php';
 require 'model/UserDAOImpl.class.php';
 require 'controller/prompt.php';
+require 'libs/utility.php';
 
 $app = new Bootstrap();

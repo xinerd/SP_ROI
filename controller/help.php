@@ -6,7 +6,7 @@
  * Author: XIN MING
  * Since: 11/1/15 9:40 AM
  */
-class help extends Controller {
+class Help extends Controller {
 
     function __construct() {
         parent::__construct();
@@ -18,10 +18,9 @@ class help extends Controller {
     }
 
     public function other($arg = false) {
-
-        //        require 'model/help_model.php';
+        //require 'model/help_model.php';
         //$model = new Help_Model();
-        //        $this->view->helpInfo =
-        $this->model->helpInfo();
+        $this->view->msg = $this->model->helpInfo($arg);
+        $this->view->render('help/index');
     }
 }

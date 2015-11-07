@@ -8,7 +8,7 @@
 
 ?>
 
-<hr/>
+<!--<hr/>-->
 
 <nav class="navbar navbar-inverse ">
     <div class="container-fluid">

@@ -10,6 +10,8 @@ class roi extends Controller {
 
     function __construct() {
         parent::__construct();
+        $this->view->js = array('roi/js/circular-slider.js', 'roi/js/roi.js');
+        $this->view->css = array('roi/css/circular-slider.css');
     }
 
     function index() {
@@ -18,7 +20,7 @@ class roi extends Controller {
 
 
     function report($token = false) {
-//        $this->view->msg = $this->model->activateAccount($token);
+        //        $this->view->msg = $this->model->activateAccount($token);
         //        if ($this->view->msg == SIGN_UP_ACTIVATE_SUCCESS) {
         //            //            $this->view->render('dashboard/index');
         //            $this->view->render('prompt/index');

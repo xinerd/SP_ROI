@@ -1,6 +1,10 @@
 Dashboard... <br/>
+
 User info:
 <?php
+
+
+
 $user = Session::get('user');
 echo $user->getId()
     . ' | ' . $user->getUserName()
@@ -23,7 +27,7 @@ echo "<br/>OS：" . $gifo->GetOs();
 
 <div id="mapholder"></div>
 
-<br/>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
-<script src="<?php echo URL; ?>view/dashboard/js/map.js"></script>

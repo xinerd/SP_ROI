@@ -33,4 +33,3 @@
     </div>
 </form>
 <!-- end of login form -->
-<script type="text/javascript" src="<?php echo URL; ?>view/login/js/login.js"></script>

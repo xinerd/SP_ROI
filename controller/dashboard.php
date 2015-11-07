@@ -11,6 +11,7 @@ class Dashboard extends Controller {
             header('location: login');
             exit;
         }
+        $this->view->js = array('dashboard/js/map.js');
     }
 
     function index() {

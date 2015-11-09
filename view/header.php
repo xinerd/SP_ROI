@@ -15,16 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
     <?php
-    if (isset($this->js)) {
-        foreach ($this->js as $js) {
-            echo '<script type="text/javascript" src="' . URL . 'view/' . $js . '"></script>';
-        }
-    }
     if (isset($this->css)) {
         foreach ($this->css as $css) {
             echo '<link rel="stylesheet" href="' . URL . 'view/' . $css . '"></script>';
@@ -35,7 +26,8 @@
     <!--    <script type="text/javascript" src="-->
     <?php //echo URL; ?><!--public/js/custom.js"></script>-->
 
-
+    <!--    recommended that you load the AngularJS library either in the <head> or at the start of the <body>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 </head>
 <body>
 

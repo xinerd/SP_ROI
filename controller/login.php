@@ -14,7 +14,8 @@ class Login extends Controller {
     function run() {
         $this->view->msg = $this->model->run();
         if ($this->view->msg === STATUS_LOGIN_SUCCESS) {
-            $this->view->render('dashboard/index');
+            //            $this->view->render('dashboard/index');
+            header('location: ../dashboard');
         } else {
             $this->view->render('prompt/index');
         }

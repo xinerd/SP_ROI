@@ -42,8 +42,6 @@ class Login_Model extends Model {
             $msg = "Unknown Exception happened when login.";
         }
         return $msg;
-        //        $controller = new Prompt();
-        //        $controller->index($msg);
     }
 
 }

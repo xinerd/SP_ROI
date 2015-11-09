@@ -26,8 +26,8 @@ require 'libs/Session.php';
 /**
  * load email
  */
-require('libs/mail/class.phpmailer.php');
-require('libs/mail/EmailService.php');
+require 'libs/mail/class.phpmailer.php';
+require 'libs/mail/EmailService.php';
 
 
 /**

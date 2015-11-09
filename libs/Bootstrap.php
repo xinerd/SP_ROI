@@ -14,7 +14,6 @@ class Bootstrap {
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        //        print_r($url);
 
         // check if no url entered
         if (empty($url[0])) {

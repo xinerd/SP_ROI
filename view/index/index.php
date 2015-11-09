@@ -18,7 +18,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <a href="roi.html">
+                <a href="roi">
                     <img src="<?php echo URL; ?>public/images/slide1.jpg" alt="ROI">
 
                     <div class="carousel-caption">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="item">
-                <a href="roi.html">
+                <a href="roi">
                     <img src="<?php echo URL; ?>public/images/slide1.jpg" alt="ROI">
 
                     <div class="carousel-caption">
@@ -42,7 +42,7 @@
             </div>
 
             <div class="item">
-                <a href="roi.html">
+                <a href="roi">
                     <img src="<?php echo URL; ?>public/images/slide1.jpg" alt="ROI">
 
                     <div class="carousel-caption">

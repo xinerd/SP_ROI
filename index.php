@@ -39,7 +39,9 @@ require 'libs/orm/rb.php';
  * load all classes
  */
 require 'vo/User.class.php';
+require 'vo/PHistory.class.php';
 require 'model/UserDAOImpl.class.php';
+require 'model/InfoDAOImpl.class.php';
 require 'controller/prompt.php';
 require 'libs/utility.php';
 

@@ -17,12 +17,12 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="dashboard"><i class="fa fa-dashboard fa-fw"></i>
+                <a href="<?php echo URL; ?>dashboard"><i class="fa fa-dashboard fa-fw"></i>
                     Dashboard</a>
             </li>
 
             <li>
-                <a href="dashboard/monitor"><i class="fa fa-tasks fa-fw"></i>
+                <a href="<?php echo URL; ?>dashboard/monitor"><i class="fa fa-tasks fa-fw"></i>
                     Monitor</a>
             </li>
 
@@ -30,10 +30,10 @@
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="dashboard/invest">Invest</a>
+                        <a href="<?php echo URL; ?>dashboard/invest">Invest</a>
                     </li>
                     <li>
-                        <a href="dashboard/income">Income</a>
+                        <a href="<?php echo URL; ?>dashboard/income">Income</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -43,10 +43,10 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="dashboard/profile">Profile</a>
+                        <a href="<?php echo URL; ?>dashboard/profile">Profile</a>
                     </li>
                     <li>
-                        <a href="dashboard/setUI">UI Settings</a>
+                        <a href="<?php echo URL; ?>dashboard/setUI">UI Settings</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -57,7 +57,7 @@
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/blank">connector</a>
+                        <a href="<?php echo URL; ?>dashboard/blank">connector</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

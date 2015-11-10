@@ -8,3 +8,9 @@
 
 define('URL', 'http://localhost/roi/');
 define('URL_ACTIVATE', 'http://localhost/roi/signup/active/');
+define('URL_SERVICE', 'http://localhost/roi/service/');
+
+
+define('DASHBOARD_INDEX', 'main');
+define('DASHBOARD_MONITOR', 'monitor');
+define('DASHBOARD_ERROR', 'error');

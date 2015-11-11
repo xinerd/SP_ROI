@@ -7,8 +7,8 @@
  */
 
 define('URL', 'http://localhost/roi/');
-define('URL_ACTIVATE', 'http://localhost/roi/signup/active/');
-define('URL_SERVICE', 'http://localhost/roi/service/');
+define('URL_ACTIVATE', URL . 'signup/active/');
+define('URL_SERVICE', URL . 'service/');
 
 
 define('DASHBOARD_INDEX', 'main');

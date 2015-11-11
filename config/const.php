@@ -50,8 +50,8 @@ define('SIGN_UP_ACTIVATE_CODE_EXPIRED', "Activated or Activation code expired<br
 /**
  * EXCEPTION
  */
-define('SQL_EXCEPTION_DUPLICATE_ENTRY',
-    'This Email is already registered<br/> Please try to login in or reset password.<br/>' . BACK_TO_LOGIN_LINK);
+define('SQL_EXCEPTION_CREATE_USER',
+    'This Email is not registered<br/> but the DB currently down, please try again later.<br/>' . BACK_TO_LOGIN_LINK);
 
 /**
  * Email

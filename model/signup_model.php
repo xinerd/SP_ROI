@@ -18,7 +18,7 @@ class Signup_Model extends Model {
                 $msg = $iEmailService->sendEmail();
                 // header('location: ../login');
             } else {
-                $msg = SQL_EXCEPTION_DUPLICATE_ENTRY;// show error prompt
+                $msg = SQL_EXCEPTION_CREATE_USER;// show error prompt
             }
         } else {
             $msg = SIGN_UP_DUPLICATE_REGISTER;

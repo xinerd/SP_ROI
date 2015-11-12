@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `regtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'register time',
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_T_EMAIL` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -40,11 +40,12 @@ CREATE TABLE IF NOT EXISTS `weather` (
 -- Table structure for table `phistory`
 --
 CREATE TABLE IF NOT EXISTS `phistory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `email` varchar(30) NOT NULL,
   `generated_power` int(11) NOT NULL,
   `consumed_power` int(11) NOT NULL,
   `price` double NOT NULL,
   `income` double NOT NULL,
-  PRIMARY KEY (`date`,`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

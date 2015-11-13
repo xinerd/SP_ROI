@@ -3,7 +3,7 @@
 ##pre-request
 * RewriteEngine On for .htaccess
 * [redbean requirements](http://www.redbeanphp.com/requirements)
-* 
+ 
 ##to do
 * Update config/Database.php file to set up correct db credentials
 * Update Paths.php to your base url

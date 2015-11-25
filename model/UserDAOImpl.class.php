@@ -11,38 +11,41 @@ class UserDAOImpl {
     function __construct() {
     }
 
+    /**
+     * Create User
+     * @param User $vo
+     * @return bool
+     * COPYRIGHT ©2014-2024, FMACHINE.CN, ALL RIGHTS RESERVED
+     * Author: XIN MING
+     */
     public static function doCreate(User $vo) {
-        $po = R::dispense('user');
+        $db = new Database();
+        $conn = $db->getConn();
 
-        $po->username = $vo->getUserName();
-        $po->password = $vo->getPassword();
-        $po->email = $vo->getEmail();
-        $po->token = $vo->getToken();
-        $po->token_exptime = $vo->getTokenExptime();
-        $po->regtime = $vo->getRegTime();
+        $userName = $vo->getUserName();
+        $password = $vo->getPassword();
+        $email = $vo->getEmail();
+        $token = $vo->getToken();
+        $token_exptime = $vo->getTokenExptime();
+        $regtime = $vo->getRegTime();
 
-        try {
-            $id = R::store($po);
-        } catch (Exception $e) {
-            //            echo $e;
-            // LOG SQL_EXCEPTION_DUPLICATE_ENTRY;
+        $sql = "INSERT INTO user (username,password,email,token,token_exptime,regtime)
+                VALUES ('$userName', '$password', '$email', '$token', '$token_exptime','$regtime' ); ";
+        if ($conn->multi_query($sql) === TRUE) {
+            $conn->close();
+            return true;
+        } else {
+            $conn->close();
+            return false;
         }
-        return isset($id) ? true : false;
     }
 
     public static function doUpdate(User $vo) {
-        $user = R::dispense('user');
-        $user->id = $vo->getId();
-        $user->username = $vo->getUserName();
-        $user->status = $vo->getStatus();
-        $user->password = $vo->getPassword();
-        return $id = R::store($user);
+
     }
 
     public static function doDeleteById($id) {
-        $user = R::dispense('user');
-        $user->id = $id;
-        R::trash($user); //for one bean
+
     }
 
     /**
@@ -52,54 +55,99 @@ class UserDAOImpl {
      * @return array
      */
     public static function find($pageNum, $pageSize) {
-        $start = ($pageNum - 1) * $pageSize;
-        $criteria = ' LIMIT ' . $start . ',' . $pageSize;
-        return R::findAll('user', $criteria);
+
     }
 
     public static function findById($id) {
-        return $user = R::load('user', $id);
+
     }
 
     public static function findByKeyword($col, $keyword) {
-        $keyword = '%' . $keyword . '%';
-        $criteria = $col . ' LIKE ?';
-        return $users = R::find('user', $criteria, [$keyword]);
+
     }
 
     public static function batchFindByIds($ids) {
-        return $users = R::loadAll('user', $ids);
+
     }
 
     public static function getAllCount() {
-        return R::count('user');
+
     }
 
     public static function exeSQL($sql) {
-        return R::exec($sql);
+
     }
 
-    public static function doLogin($email, $password) {
-        $user = R::findOne('user', ' email = ? and password = ? ', [$email, $password]);
-        return $user;
+    /**
+     * Login
+     * @param $email
+     * @param $password
+     * @return null|user
+     * COPYRIGHT ©2014-2024, FMACHINE.CN, ALL RIGHTS RESERVED
+     * Author: XIN MING
+     */
+    public function doLogin($email, $password) {
+        $db = new Database();
+        $conn = $db->getConn();
+
+        $sql = "select u.id,u.username,u.email,u.token,u.token_exptime,u.status,u.regtime
+                from user u where u.email='$email' and u.password='$password'";
+        $result = $conn->query($sql);
+        $po = null;
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            // Set po
+            $po = new user();
+            $po->setId($row['id']);
+            $po->setUserName($row['username']);
+            $po->setEmail($row['email']);
+            $po->setToken($row['token']);
+            $po->setTokenExptime($row['token_exptime']);
+            $po->setStatus($row['status']);
+            $po->setRegTime($row['regtime']);
+        }
+        $db->getConn()->close();
+        return $po;
     }
 
+    /**
+     * Find by email address, this should be check before sign up
+     * @param $email
+     * @return bool
+     * COPYRIGHT ©2014-2024, FMACHINE.CN, ALL RIGHTS RESERVED
+     * Author: XIN MING
+     */
     public static function findByEmail($email) {
-        $user = R::findOne('user', ' email = ? ', [$email]);
-        return $user != null ? true : false;
+        $db = new Database();
+        $conn = $db->getConn();
+
+        $sql = "select u.id,u.username,u.email,u.token,u.token_exptime,u.status,u.regtime
+                from user u where u.email='$email' ";
+        $result = $conn->query($sql);
+        $po = null;
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            // Set po
+            $po = new user();
+            $po->setId($row['id']);
+            $po->setUserName($row['username']);
+            $po->setEmail($row['email']);
+            $po->setToken($row['token']);
+            $po->setTokenExptime($row['token_exptime']);
+            $po->setStatus($row['status']);
+            $po->setRegTime($row['regtime']);
+        }
+        $db->getConn()->close();
+
+        return $po != null ? true : false;
     }
 
     public static function activateAccount($token, $nowtime) {
-        //        $user = R::dispense('user');
-
-        $result = R::exec('UPDATE user SET status = 1
-                            WHERE token = :token AND token_exptime > :nowtime ',
-            [':token' => $token, ':nowtime' => $nowtime]);
-
-        return $result;
+        $db = new Database();
+        $conn = $db->getConn();
+        $sql = "UPDATE user SET status=1
+                       WHERE token = '$token' AND token_exptime > '$nowtime' ";
+        return $conn->query($sql) === TRUE ? true : false;
     }
-
-    // reload
-    //$bean = $bean->fresh();
 
 }

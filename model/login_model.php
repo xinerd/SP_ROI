@@ -1,16 +1,18 @@
 <?php
 
 class Login_Model extends Model {
+    private $userDAOImpl;
+
     public function __construct() {
         parent::__construct();
+        $this->userDAOImpl = new UserDAOImpl();
     }
 
     public function run() {
-        //        echo "inside model/run";
         $uid = $_POST['login'];
         $password = MD5($_POST['password']);
 
-        $po = UserDAOImpl::doLogin($uid, $password); // get from DB
+        $po = $this->userDAOImpl->doLogin($uid, $password); // get from DB
         /**
          * 1. no record found
          * 2. user email and password matched and status is activated
@@ -19,26 +21,14 @@ class Login_Model extends Model {
          */
         if (null == $po) {
             $msg = NO_RECORD_PROMPT . BACK_TO_LOGIN_LINK;
-            //  header('location: ../login');
-        } elseif ($po->status == STATUS_ACTIVATED) {
-            $user = new User(); // vo : used to convey user info
-            $user->setId($po->id);
-            $user->setUserName($po->username);
-            $user->setPassword($po->password);
-            $user->setEmail($po->email);
-            $user->setStatus($po->status);
-            $user->setToken($po->token);
-            $user->setTokenExptime($po->token_exptime);
-            $user->setRegTime($po->regtime);
+        } elseif ($po->getStatus() == STATUS_ACTIVATED) {
             Session::init();
             Session::set('loggedIn', true);
-            Session::set('user', $user);
-            // header('location: ../dashboard');
+            Session::set('user', $po);
             $msg = STATUS_LOGIN_SUCCESS;
-        } elseif ($po->status == STATUS_NON_ACTIVATED) {
+        } elseif ($po->getStatus() == STATUS_NON_ACTIVATED) {
             $msg = STATUS_NON_ACTIVATED_PROMPT . BACK_TO_LOGIN_LINK;
         } else {
-            //header('location: ../login?status=exception');
             $msg = "Unknown Exception happened when login.";
         }
         return $msg;

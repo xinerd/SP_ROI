@@ -1,16 +1,22 @@
 <?php
 
 class Database {
-    //class Database extends PDO {
+    private $conn;
 
     public function __construct() {
-        //        parent::__construct(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-        //        R::setup('mysql:host=localhost;dbname=orm', 'root', 'mysqladmin');
-        R::setup(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-        R::freeze(TRUE);
-        //R::startLogging(); //start logging
-        //        R::debug(TRUE);//turns debugging ON
+         // Create connection
+        $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        // Check connection
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
+        }
     }
 
+    /**
+     * @return mysqli
+     */
+    public function getConn() {
+        return $this->conn;
+    }
 
 }

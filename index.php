@@ -33,7 +33,7 @@ require 'libs/mail/EmailService.php';
 /**
  * load all framework
  */
-require 'libs/orm/rb.php';
+
 
 /**
  * load all classes

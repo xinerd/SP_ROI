@@ -18,13 +18,32 @@ class InfoDAOImpl {
      * @return array
      */
     public static function find($pageNum, $pageSize) {
-        $start = ($pageNum - 1) * $pageSize;
-        $criteria = ' LIMIT ' . $start . ',' . $pageSize;
-        return R::findAll('user', $criteria);
     }
 
     public static function findPanelHistory() {
-        return R::findAll('phistory', ' ORDER BY id DESC LIMIT 5 ');
+        //        return R::findAll('phistory', ' ORDER BY id DESC LIMIT 5 ');
+        $db = new Database();
+        $conn = $db->getConn();
+        $sql = "select * from phistory ORDER BY id DESC LIMIT 5 ";
+        $result = $conn->query($sql);
+        $rows = $result->num_rows;
+
+        $poArray = null;
+        while (--$rows >= 0) {
+            $row = $result->fetch_assoc();
+            // Set po
+            $po = new PHistory();
+            $po->setId($row['id']);
+            $po->setDate($row['date']);
+            $po->setEmail($row['email']);
+            $po->setGeneratedPower($row['generated_power']);
+            $po->setConsumedPower($row['consumed_power']);
+            $po->setPrice($row['price']);
+            $po->setIncome($row['income']);
+            $poArray[$rows] = $po;
+        }
+        $conn->close();
+        return $poArray;
     }
 
 }

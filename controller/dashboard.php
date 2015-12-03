@@ -51,16 +51,50 @@ class Dashboard extends Controller {
         $this->view->render('dashboard/index');
     }
 
+    function comments() {
+        $this->view->js = array(
+            'dashboard/bower_components/metisMenu/dist/metisMenu.min.js',
+            'dashboard/dist/js/sb-admin-2.js'
+        );
+        $this->view->main = 'comments';
+        $this->view->render('dashboard/index');
+    }
+
+    function deals() {
+        $this->view->js = array(
+            'dashboard/bower_components/metisMenu/dist/metisMenu.min.js',
+            //'dashboard/bower_components/datatables/jquery.dataTables.min.js',
+            'dashboard/dist/js/sb-admin-2.js'
+        );
+
+        //        $this->view->css = array(
+        //            'dashboard/bower_components/datatables/dataTables.bootstrap.css',
+        //            'dashboard/bower_components/datatables/dataTables.responsive.css'
+        //        );
+
+        $this->view->main = 'deals';
+        $this->view->render('dashboard/index');
+    }
+
+    function orders() {
+        $this->view->js = array(
+            'dashboard/bower_components/metisMenu/dist/metisMenu.min.js',
+            'dashboard/dist/js/sb-admin-2.js'
+        );
+        $this->view->main = 'orders';
+        $this->view->render('dashboard/index');
+    }
+
     function monitor() {
         $this->view->js = array(
             'dashboard/bower_components/metisMenu/dist/metisMenu.min.js',
             'dashboard/dist/js/sb-admin-2.js',
-
             'dashboard/js/map.js'
         );
         $this->view->main = 'monitor';
         $this->view->render('dashboard/index');
     }
+
 
     function logout() {
         Session::destroy();

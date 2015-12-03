@@ -10,7 +10,7 @@
 
 <head>
 
-    <title>91513 XIN MING</title>
+    <title>Smart Investor</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,6 +41,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- share components -->
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "04f500f4-e304-4de4-82c7-3921d322c0f4", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
 <body>
 

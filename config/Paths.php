@@ -12,5 +12,8 @@ define('URL_SERVICE', URL . 'service/');
 
 
 define('DASHBOARD_INDEX', 'main');
+define('DASHBOARD_COMMENTS', 'comments');
+define('DASHBOARD_DEALS', 'deals');
+define('DASHBOARD_ORDERS', 'orders');
 define('DASHBOARD_MONITOR', 'monitor');
 define('DASHBOARD_ERROR', 'error');

@@ -25,26 +25,28 @@
             </div>
         </div>
 
-        <form class="form-horizontal" role="form">
-
+        <form class="form-horizontal" role="form" method="post" id="reg" action="report/general"
+              onsubmit="return chk_form();">
             <div class="col-md-3">
 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="text" class="form-control input-lg" id="firstName" min="1"
+                        <input type="text" class="form-control input-lg" name="firstName"
+                               id="firstName" min="1"
                                maxlength="20" placeholder="First Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="text" class="form-control input-lg" id="lastName" min="1"
+                        <input type="text" class="form-control input-lg" id="lastName"
+                               name="lastName" min="1"
                                maxlength="20" placeholder="lastName">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="email" class="form-control input-lg" id="email"
+                        <input type="email" class="form-control input-lg" id="email" name="email"
                                placeholder="Email">
                     </div>
                 </div>
@@ -113,7 +115,25 @@
 
         </form>
 
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_linkedin_large' displayText='LinkedIn'></span>
+        <span class='st_pinterest_large' displayText='Pinterest'></span>
+        <span class='st_email_large' displayText='Email'></span>
+
     </div>
 
 
 </div>
+
+<script type="text/javascript">
+    function chk_form() {
+//        var email = document.getElementById("email");
+//        if (email.value == "") {
+//            alert("enter email before submit！");
+//            return false;
+//        }
+        return true;
+    }
+</script>

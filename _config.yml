@@ -1,0 +1,12 @@
+# Site settings
+title: Solar Panel ROI Project
+email: m.xinerd@gmail.com	
+description: > # this means to ignore newlines until "baseurl:"
+  Solar panel return of interest. 
+baseurl: "/SP_ROI" # the subpath of your site, e.g. /blog
+url: "http://xinerd.github.io" # the base hostname & protocol for your site
+twitter_username: xinerd
+github_username:  xinerd
+
+# Build settings
+markdown: kramdown
